@@ -13,28 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20160503042722) do
 
-  create_table "pictures", force: :cascade do |t|
-    t.string   "path",       limit: 255, null: false
-    t.string   "extention",  limit: 255, null: false
-    t.integer  "width",      limit: 4,   null: false
-    t.integer  "height",     limit: 4,   null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.datetime "deleted_at"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string   "title",       limit: 255
     t.string   "description", limit: 255
     t.decimal  "latitude",                precision: 9, scale: 6, null: false
     t.decimal  "longitude",               precision: 9, scale: 6, null: false
-    t.integer  "picture_id",  limit: 4
+    t.string   "picture",     limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.datetime "deleted_at"
   end
 
-  add_index "posts", ["picture_id"], name: "index_posts_on_picture_id", using: :btree
-
-  add_foreign_key "posts", "pictures"
 end
