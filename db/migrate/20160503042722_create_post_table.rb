@@ -5,7 +5,7 @@ class CreatePostTable < ActiveRecord::Migration
       t.string :description
       t.decimal :latitude, :null => false, :precision => 9, :scale => 6
       t.decimal :longitude, :null => false, :precision => 9, :scale => 6
-      t.references :picture, index: true, foreign_key: true
+      t.string :picture
       t.timestamps null: false
       t.datetime :deleted_at
     end
