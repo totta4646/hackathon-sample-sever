@@ -11,8 +11,8 @@ class Api::PostsController < ApplicationController
     Post.find_or_create_by(
       title: "title",
       description: "description",
-      latitude: 0,
-      longitude: 0,
+      latitude: params['latitude'],
+      longitude: params['longitude'],
       picture: params['uploadFile']
     ).tap(&:save)
     render json: { "status" => '200' }
